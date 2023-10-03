@@ -5,7 +5,7 @@ import Qzone3 from '../../assets/qZone3.png'
 import BackPart from '../../assets/bg1.png'
 
 
-const RightNavbar = () => {
+const RightNavbar = ({ createStaus }) => {
     return (
         <div>
             <div className="space-y-2">
@@ -46,13 +46,13 @@ const RightNavbar = () => {
                 <img className="py-2" src={Qzone2} alt="" />
                 <img className="py-2" src={Qzone3} alt="" />
             </div>
-            <div className="bg-red-400 my-8 overflow-hidden flex flex-col items-center justify-center text-center rounded-lg" style={{ backgroundImage: `url(${BackPart})` }}>
+            {createStaus && <div className="bg-red-400 my-8 overflow-hidden flex flex-col items-center justify-center text-center rounded-lg" style={{ backgroundImage: `url(${BackPart})` }}>
                 <div className="bgx p-10 py-16 text-white ">
                     <h1 className="font-bold text-2xl">Create an Amazing Newspaper</h1>
                     <p className="my-10">Discover thousands of options, easy to customize layouts, one-click to import demo and much more.</p>
                     <button className=" bg-[#D72050] text-white px-3 py-2 text-[20px] rounded-sm py-1">Learn More</button>
                 </div>
-            </div>
+            </div>}
         </div>
     )
 }

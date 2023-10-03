@@ -4,6 +4,8 @@ import './index.css'
 import { RouterProvider, createBrowserRouter } from 'react-router-dom'
 import HomePage from './pages/HomePage/HomePage.jsx'
 import Root from './pages/Root/Root'
+import ViewDetails from './pages/ViewDetails/ViewDetails'
+import Login from './pages/LoginPage/Login'
 
 const router = createBrowserRouter([
   {
@@ -13,6 +15,13 @@ const router = createBrowserRouter([
       {
         path:'/',
         element:<HomePage/>
+      },{
+        path:'/news/:sid',
+        element:<ViewDetails/>
+      },
+      {
+        path:'/login',
+        element:<Login/>
       }
     ]
   }

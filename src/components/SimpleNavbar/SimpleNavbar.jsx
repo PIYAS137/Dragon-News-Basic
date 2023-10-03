@@ -1,4 +1,4 @@
-import { NavLink } from "react-router-dom"
+import { Link, NavLink } from "react-router-dom"
 import DefaultUser from '../../assets/user.png'
 
 const SimpleNavbar = () => {
@@ -10,7 +10,7 @@ const SimpleNavbar = () => {
     </>
 
     return (
-        <div className="navbar bg-base-100 mb-20">
+        <div className="navbar bg-base-100 mb-16">
             <div className="navbar-start">
                 <div className="dropdown">
                     <label tabIndex={0} className="btn btn-ghost lg:hidden">
@@ -32,9 +32,9 @@ const SimpleNavbar = () => {
                         <img src={DefaultUser} />
                     </div>
                 </label>
-                <NavLink>
+                <Link to='/login'>
                     <button className="btn ml-2 bg-gray-800 text-white px-5">Log in</button>
-                </NavLink>
+                </Link>
             </div>
         </div>
     )

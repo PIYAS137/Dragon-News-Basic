@@ -22,11 +22,11 @@ const LeftNavbar = () => {
     return (
         <div>
             <div className="space-y-2">
-                <h1 className="font-bold text-lg mb-2">All Category</h1>
+                <h1 className="font-bold text-lg mb-1">All Category</h1>
                 <button className="text-lg py-2 font-semibold rounded-lg bg-gray-200 w-full">
                     National News
                 </button>
-                <div className="text-gray-600  pl-6 space-y-3 py-5">
+                <div className="text-gray-400 font-semibold pl-6 space-y-3 py-5">
                     {categorys && categorys.map((one) => <Link className="block" key={one.id}>{one.name}</Link>)}
                 </div>
                 <div className="bg-red-60 space-y-3">
