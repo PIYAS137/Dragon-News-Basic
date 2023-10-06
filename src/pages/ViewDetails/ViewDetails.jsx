@@ -6,6 +6,7 @@ import { FaCalendar, FaChevronLeft } from "react-icons/fa"
 import Pic1 from '../../assets/1.png'
 import Pic2 from '../../assets/2.png'
 import Pic3 from '../../assets/3.png'
+import SimpleNavbar from "../../components/SimpleNavbar/SimpleNavbar"
 
 
 const ViewDetails = () => {
@@ -34,6 +35,7 @@ const ViewDetails = () => {
         <>
             <div className="mb-10">
             <Header />
+            <SimpleNavbar/>
             </div>
             {data && <div className="grid grid-cols-4 gap-4 mb-8">
                 <div className="col-span-3 rounded-lg overflow-hidden mt-7">

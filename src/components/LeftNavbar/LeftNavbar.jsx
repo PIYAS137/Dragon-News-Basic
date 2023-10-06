@@ -23,7 +23,7 @@ const LeftNavbar = () => {
         <div>
             <div className="space-y-2">
                 <h1 className="font-bold text-lg mb-1">All Category</h1>
-                <button className="text-lg py-2 font-semibold rounded-lg bg-gray-200 w-full">
+                <button className="text-lg py-2 font-semibold rounded-lg bg-gray-200 dark:bg-gray-800 dark:text-white w-full">
                     National News
                 </button>
                 <div className="text-gray-400 font-semibold pl-6 space-y-3 py-5">
@@ -32,9 +32,9 @@ const LeftNavbar = () => {
                 <div className="bg-red-60 space-y-3">
                     <div>
                         <img className="w-full rounded-lg" src={Pic1} alt="" />
-                        <h1 className=" text-[20px] py-5 font-semibold">Bayern Slams Authorities Over Flight Delay to Club World Cup</h1>
+                        <h1 className=" text-[20px] py-5 font-semibold dark:text-gray-400">Bayern Slams Authorities Over Flight Delay to Club World Cup</h1>
                         <div className="flex items-center text-sm space-x-4 text-gray-500">
-                            <span className="font-semibold text-black">Sports</span>
+                            <span className="font-semibold text-black dark:text-gray-400">Sports</span>
                             <span className="flex items-center space-x-2">
                                 <FaCalendar />
                                 <span>Jan 4, 2023</span>
@@ -43,9 +43,9 @@ const LeftNavbar = () => {
                     </div>
                     <div>
                         <img className="w-full rounded-lg" src={Pic2} alt="" />
-                        <h1 className=" text-[20px] py-5 font-semibold">Bayern Slams Authorities Over Flight Delay to Club World Cup</h1>
+                        <h1 className=" text-[20px] py-5 font-semibold dark:text-gray-400">Bayern Slams Authorities Over Flight Delay to Club World Cup</h1>
                         <div className="flex items-center text-sm space-x-4 text-gray-500">
-                            <span className="font-semibold text-black">Sports</span>
+                            <span className="font-semibold text-black dark:text-gray-400">Sports</span>
                             <span className="flex items-center space-x-2">
                                 <FaCalendar />
                                 <span>Jan 4, 2023</span>
@@ -54,9 +54,9 @@ const LeftNavbar = () => {
                     </div>
                     <div>
                         <img className="w-full rounded-lg" src={Pic3} alt="" />
-                        <h1 className=" text-[20px] py-5 font-semibold">Bayern Slams Authorities Over Flight Delay to Club World Cup</h1>
+                        <h1 className=" text-[20px] py-5 font-semibold dark:text-gray-400">Bayern Slams Authorities Over Flight Delay to Club World Cup</h1>
                         <div className="flex items-center text-sm space-x-4 text-gray-500">
-                            <span className="font-semibold text-black">Sports</span>
+                            <span className="font-semibold text-black dark:text-gray-400">Sports</span>
                             <span className="flex items-center space-x-2">
                                 <FaCalendar />
                                 <span>Jan 4, 2023</span>

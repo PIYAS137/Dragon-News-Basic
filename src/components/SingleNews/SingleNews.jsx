@@ -1,11 +1,12 @@
 import { FaRegBookmark, FaShareAlt, FaEye } from "react-icons/fa";
 import { Link } from "react-router-dom";
+import PropTypes from 'prop-types'; 
 
 
 const SingleNews = ({ data }) => {
     return (
-        <div className="border border-gray-100 w-full rounded-lg overflow-hidden shadow-md">
-            <div className="bg-gray-100 flex justify-between p-5 rounded-t-lg">
+        <div className="border border-gray-100 dark:border-gray-700 w-full rounded-lg overflow-hidden shadow-md">
+            <div className="bg-gray-100 dark:bg-gray-800 flex justify-between p-5 rounded-t-lg">
                 <div className="flex items-center">
                     <div style={{ backgroundImage: `url(${data.author.img})` }} className="bgImg w-10 h-10 bg-red-500 rounded-full"></div>
                     <div className="ml-4">
@@ -13,7 +14,7 @@ const SingleNews = ({ data }) => {
                         <span className="text-gray-400 text-sm">2022-08-21</span>
                     </div>
                 </div>
-                <div className="flex items-center space-x-2 text-gray-600">
+                <div className="flex items-center space-x-2 text-gray-600 dark:text-gray-300">
                     <FaRegBookmark />
                     <FaShareAlt />
                 </div>
@@ -25,12 +26,12 @@ const SingleNews = ({ data }) => {
                 <Link to={`/news/${data._id}`}>
                     <span className="block font-semibold mt-3 cursor-pointer text-orange-500">Read More</span>
                 </Link>
-                <hr className="block my-3" />
+                <hr className="block my-3 border-gray-300 dark:border-gray-700" />
                 <div className="flex  items-center justify-between mb-5">
                     <div className="flex  items-center ">
                         <div className="rating rating-sm">
                             <input type="radio" name="rating-2" className="mask mask-star-2 bg-orange-400" />
-                            <input type="radio" name="rating-2" className="mask mask-star-2 bg-orange-400" checked />
+                            <input type="radio" name="rating-2" className="mask mask-star-2 bg-orange-400" />
                             <input type="radio" name="rating-2" className="mask mask-star-2 bg-orange-400" />
                             <input type="radio" name="rating-2" className="mask mask-star-2 bg-orange-400" />
                             <input type="radio" name="rating-2" className="mask mask-star-2 bg-orange-400" />
@@ -47,4 +48,8 @@ const SingleNews = ({ data }) => {
     )
 }
 
+
+SingleNews.propTypes = {
+    data: PropTypes.object.isRequired
+}
 export default SingleNews
