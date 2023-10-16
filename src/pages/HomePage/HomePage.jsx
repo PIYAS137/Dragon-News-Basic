@@ -20,17 +20,13 @@ const HomePage = () => {
                 setTempDatas(res)
                 console.log(cate);
                 if (cate > 0) {
-                    const rem = nextDatas.filter(one => parseInt(one.category_id)===cate)
+                    const rem = nextDatas.filter(one => parseInt(one.category_id) === cate)
                     setTempDatas(rem)
                     console.log(tempDatas);
-                    
+
                 }
-                // if(cate==0){
-                //     setTempDatas(nextDatas)
-                // }
             })
     }, [cate])
-
 
 
     return (
@@ -38,20 +34,17 @@ const HomePage = () => {
             <Header />
             <BreakingNews />
             <SimpleNavbar />
-            <div className="font-poppins grid grid-cols-4 gap-4">
-                <div className="">
+            <div className="font-poppins grid grid-cols-4 gap-4 h-screen overflow-y-hidden">
+                <div className="overflow-y-scroll">
                     <LeftNavbar />
                 </div>
-                <div className="col-span-2">
+                <div className="col-span-2 overflow-y-scroll">
                     <h1 className="text-[18px] 500 mb-3 font-bold">Dragon News Home</h1>
-
                     {
-                        tempDatas.length==0 && <div className="bg-red-300 p-3 rounded-lg text-black text-center">
+                        tempDatas.length == 0 && <div className="bg-red-300 p-3 rounded-lg text-black text-center">
                             <p>No Data found for this category !</p>
                         </div>
                     }
-
-
                     <div className="space-y-7">
                         {tempDatas.map((one) => {
                             return (
@@ -59,9 +52,8 @@ const HomePage = () => {
                             )
                         })}
                     </div>
-
                 </div>
-                <div className="">
+                <div className="overflow-y-scroll">
                     <RightNavbar createStaus={true} />
                 </div>
             </div>

@@ -17,7 +17,7 @@ const AuthContextProvider = ({children}) => {
     const [user,setUser]=useState(null);
     const [loading,setLoading]=useState(true)
     const [cate,setCate]=useState(0)
-
+    const [theme, setTheme] = useState(null);
 
 
     const setDatasByClick=(val)=>{
@@ -83,7 +83,9 @@ const AuthContextProvider = ({children}) => {
         GoogleLogIn,
         UpdateUserProfile,
         cate,
-        setDatasByClick
+        setDatasByClick,
+        theme,
+        setTheme
         }
 
   return (

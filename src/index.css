@@ -9,10 +9,12 @@
     background-repeat: no-repeat
 }
 .activeBarx{
-  color: #c6440c;
+  color: #663399;
   font-weight: bold;
 }
-
+::-webkit-scrollbar{
+  display: none
+}
 
 
 

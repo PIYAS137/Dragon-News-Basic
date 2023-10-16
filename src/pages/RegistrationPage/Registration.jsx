@@ -69,9 +69,9 @@ const Registration = () => {
     }
 
     return (
-        <div className="max-w-6xl text-[#706F6F] py-20">
+        <div className="max-w-6xl text-[#706F6F]">
             <SimpleNavbar />
-            <form onSubmit={handleSubmit} className="max-w-2xl mx-auto p-20 rounded-lg bg-gray-100">
+            <form onSubmit={handleSubmit} className="max-w-2xl mb-20 mx-auto p-20 rounded-lg bg-gray-100">
                 <h1 className="font-semibold text-3xl text-center">Register your account</h1>
                 <hr className=" my-10" />
                 <div className="">
