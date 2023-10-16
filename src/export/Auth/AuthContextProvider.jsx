@@ -16,6 +16,23 @@ const GoogleProvider=new GoogleAuthProvider()
 const AuthContextProvider = ({children}) => {
     const [user,setUser]=useState(null);
     const [loading,setLoading]=useState(true)
+    const [cate,setCate]=useState(0)
+
+
+
+    const setDatasByClick=(val)=>{
+      setCate(parseInt(val))
+    }
+
+
+
+
+
+
+
+
+
+
 
 
     const createUser=(email,pass)=>{
@@ -64,8 +81,10 @@ const AuthContextProvider = ({children}) => {
         LoginUser,
         loading,
         GoogleLogIn,
-        UpdateUserProfile
-    }
+        UpdateUserProfile,
+        cate,
+        setDatasByClick
+        }
 
   return (
     <AuthContext.Provider value={authInfo}>

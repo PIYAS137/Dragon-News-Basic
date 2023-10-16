@@ -1,14 +1,16 @@
-import { useEffect, useState } from "react"
+import { useContext, useEffect, useState } from "react"
 import { Link } from "react-router-dom"
 import Pic1 from '../../assets/1.png'
 import Pic2 from '../../assets/2.png'
 import Pic3 from '../../assets/3.png'
 import { FaCalendar } from "react-icons/fa";
+import { AuthContext } from "../../export/Auth/AuthContextProvider"
 
 
 const LeftNavbar = () => {
-
+    const {setDatasByClick}=useContext(AuthContext)
     const [categorys, setCategorys] = useState([])
+    const [activeBar,setActiveBar]=useState(null)
 
     useEffect(() => {
         fetch('/src/export/data/categories.json')
@@ -19,6 +21,12 @@ const LeftNavbar = () => {
     console.log(categorys);
 
 
+    const handleClickCategroy=(sid,i)=>{
+        setDatasByClick(sid)
+        setActiveBar(i)
+    }
+
+
     return (
         <div>
             <div className="space-y-2">
@@ -27,7 +35,9 @@ const LeftNavbar = () => {
                     National News
                 </button>
                 <div className="text-gray-400 font-semibold pl-6 space-y-3 py-5">
-                    {categorys && categorys.map((one) => <Link className="block" key={one.id}>{one.name}</Link>)}
+                    {categorys && categorys.map((one,i) => <Link onClick={()=>handleClickCategroy(one.id,i)}
+                    className={`block ${i===activeBar?"activeBarx":""}`}
+                    key={one.id}>{one.name}</Link>)}
                 </div>
                 <div className="bg-red-60 space-y-3">
                     <div>
