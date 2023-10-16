@@ -1,4 +1,4 @@
-
+import Swal from 'sweetalert2'
 import { Link, useLocation, useNavigate } from "react-router-dom"
 import SimpleNavbar from "../../components/SimpleNavbar/SimpleNavbar"
 import { useContext, useState } from "react"
@@ -20,13 +20,24 @@ const Login = () => {
 
     LoginUser(email,pass)
       .then(res=>{
-        console.log(res);
+        Swal.fire({
+          position: 'top-end',
+          icon: 'success',
+          title: 'Successfully Logged In !',
+          showConfirmButton: false,
+          timer: 2000
+        })
+        navigate(location?.state ? location.state : '/')
+        setEmail('')
+        setPass('')
       }).catch(err=>{
-        console.log(err);
+        Swal.fire({
+          icon: 'error',
+          title: 'Oops...',
+          text: `${err.message}`
+        })
+        return 
       })
-      setEmail('')
-      setPass('')
-      navigate(location?.state ? location.state : '/')
   }
 
 

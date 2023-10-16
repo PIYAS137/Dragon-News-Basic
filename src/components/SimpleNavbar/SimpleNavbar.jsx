@@ -40,14 +40,14 @@ const SimpleNavbar = () => {
             <div className="navbar-end">
                 <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
                     <div className="w-12 rounded-full">
-                        <img src={DefaultUser} />
+                        <img src={user?.photoURL?user.photoURL:DefaultUser} />
                     </div>
                 </label>
 
 
                 {
                     user ?
-                        <button onClick={handleSignOutUser} className="btn ml-2 bg-gray-800 hover:bg-gray-600 text-white px-5">Sign Out</button>
+                        <button onClick={handleSignOutUser} className="btn ml-2 bg-orange-700 hover:bg-orange-600 text-white px-5">Sign Out</button>
                         :
                         <Link to='/login'>
                             <button className="btn ml-2 bg-gray-800 hover:bg-gray-600 text-white px-5">Log in</button>

@@ -3,9 +3,7 @@ import AppNavbar from "../../layout/AppNavbar"
 
 
 
-
 const Root = () => {
-
 
     return (
         <div className=" font-poppins dark:bg-black">

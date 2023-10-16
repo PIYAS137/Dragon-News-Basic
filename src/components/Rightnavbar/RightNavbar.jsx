@@ -1,16 +1,41 @@
 import { FaFacebook, FaFacebookF, FaGithub, FaGoogle, FaInstagram, FaTwitter } from "react-icons/fa";
+import Swal from 'sweetalert2'
 import Qzone1 from '../../assets/qZone1.png'
 import Qzone2 from '../../assets/qZone2.png'
 import Qzone3 from '../../assets/qZone3.png'
 import BackPart from '../../assets/bg1.png'
+import { useContext } from "react";
+import { AuthContext } from "../../export/Auth/AuthContextProvider";
 
 
 const RightNavbar = ({ createStaus }) => {
+    const {GoogleLogIn,user}=useContext(AuthContext)
+
+    const handleGoogleLogIn=()=>{
+        if(!user){
+            GoogleLogIn()
+        .then(res=>{
+            console.log(res);
+            Swal.fire({
+                position: 'top-end',
+                icon: 'success',
+                title: 'Successfully Logged In !',
+                showConfirmButton: false,
+                timer: 2000
+              })
+        }).catch(err=>{
+            console.log(err)
+        })
+        }else{
+            Swal.fire("You Already Logged In !")
+        }
+    }
+
     return (
         <div>
             <div className="space-y-2 ">
                 <h1 className="font-bold text-lg">Login With</h1>
-                <button className="btn dark:border-gray-700 dark:text-gray-300 border-gray-200 w-full btn-outline">
+                <button onClick={handleGoogleLogIn} className="btn dark:border-gray-700 dark:text-gray-300 border-gray-200 w-full btn-outline">
                     <FaGoogle />
                     Google
                 </button>
