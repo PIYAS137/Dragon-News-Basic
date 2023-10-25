@@ -33,11 +33,9 @@ const ViewDetails = () => {
 
     return (
         <>
-            <div className="mb-10">
-            <Header />
-            <SimpleNavbar/>
+            <div className="">
             </div>
-            {data && <div className="grid grid-cols-4 gap-4 mb-8">
+            {data && <div className="grid md:grid-cols-4 gap-4 mb-8">
                 <div className="col-span-3 rounded-lg overflow-hidden mt-7">
                     <h1 className="font-bold text-xl mb-3">Dragon News</h1>
                     <div className="px-5 border rounded-lg">
@@ -54,7 +52,7 @@ const ViewDetails = () => {
                         </div>
                     </div>
 
-                    <div>
+                    <div className=" hidden md:block">
                         <h1 className="mt-8 mb-5 font-bold text-xl">Editors Insight</h1>
                         <div className="bg-red-60 gap-3 mt-3 grid grid-cols-3">
                         <div>
@@ -95,7 +93,7 @@ const ViewDetails = () => {
                     </div>
 
                 </div>
-                <div className="mt-8">
+                <div className="mt-8 hidden md:block">
                     <RightNavbar createStaus={false}/>
                 </div>
             </div>}

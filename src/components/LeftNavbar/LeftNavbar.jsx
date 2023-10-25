@@ -18,8 +18,6 @@ const LeftNavbar = () => {
             .then(res => setCategorys(res))
     }, [])
 
-    console.log(categorys);
-
 
     const handleClickCategroy=(sid,i)=>{
         setDatasByClick(sid)

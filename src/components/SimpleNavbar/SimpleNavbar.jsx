@@ -1,6 +1,6 @@
 import { Link, NavLink } from "react-router-dom"
 import DefaultUser from '../../assets/user.png'
-import { useContext, useEffect, useState } from "react"
+import { useContext, useEffect } from "react"
 import { AuthContext } from "../../export/Auth/AuthContextProvider"
 import LOGO from '../../assets/logo.png'
 
@@ -30,27 +30,23 @@ const SimpleNavbar = () => {
             document.documentElement.classList.remove("dark");
         }
     }, [theme])
-
-
-
     const handleThemeSwitch = () => {
         setTheme(theme === "dark" ? "light" : "dark");
     }
 
     const navLinks = <>
         <li className="dark:text-white"><NavLink to='/'>Home</NavLink></li>
-        <li className="dark:text-white"><NavLink to='/career'>Bookmarked</NavLink></li>
-        <li className="dark:text-white"><NavLink to='/about'>About</NavLink></li>
+        <li className="dark:text-white"><NavLink to='/bookmark'>Bookmarked</NavLink></li>
     </>
 
     return (
-        <div className="navbar bg-gray-100 dark:bg-gray-800 mb-16 rounded-md">
+        <div className="navbar bg-gray-100 dark:bg-gray-800 mb-6 rounded-md">
             <div className="navbar-start lg:hidden">
-                <div className="dropdown">
+                <div className="dropdown z-50">
                     <label tabIndex={0} className="btn btn-ghost lg:hidden">
                         <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h8m-8 6h16" /></svg>
                     </label>
-                    <ul tabIndex={0} className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52">
+                    <ul tabIndex={0} className="menu menu-sm dark:text-black dropdown-content mt-3 z-[1] p-2 shadow dark:bg-gray-600 bg-base-100 rounded-box w-52">
                         {navLinks}
                     </ul>
                 </div>

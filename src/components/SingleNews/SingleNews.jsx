@@ -1,9 +1,55 @@
-import { FaRegBookmark, FaShareAlt, FaEye } from "react-icons/fa";
-import { Link } from "react-router-dom";
-import PropTypes from 'prop-types'; 
+import { FaRegBookmark, FaBookmark, FaShareAlt, FaEye } from "react-icons/fa";
+import { Link, Navigate, useNavigate } from "react-router-dom";
+import PropTypes from 'prop-types';
+import { useContext, useState } from "react";
+import Swal from 'sweetalert2'
+import { addToLocalStorage , removeIdFromLS, getDataFromLS } from '../../LocalStorage/LocalStorage.js'
+import { AuthContext } from "../../export/Auth/AuthContextProvider.jsx";
 
 
 const SingleNews = ({ data }) => {
+    const [status, setStatus] = useState(false)
+    const {user} = useContext(AuthContext)
+    const navigate = useNavigate()
+
+
+    const handleClick = (_id) => {
+        
+        if(!user){
+            navigate('/login')
+            Swal.fire(
+                'You should be Logged In for it!',
+            )
+            return 
+        }
+
+        if (!getDataFromLS().includes(_id)) {
+            Swal.fire({
+                title: 'Are you sure?',
+                icon: 'info',
+                showCancelButton: true,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                confirmButtonText: 'Yes!'
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    setStatus(!status)
+                    addToLocalStorage(_id)
+                    Swal.fire(
+                        'Bookmarked !',
+                        'Your file has been bookmarked.',
+                        'success'
+                    )
+                }
+            })
+        }else{
+            setStatus(!status)
+            removeIdFromLS(_id)
+        }
+
+    }
+
+
     return (
         <div className="border border-gray-100 dark:border-gray-700 w-full rounded-lg overflow-hidden shadow-md">
             <div className="bg-gray-100 dark:bg-gray-800 flex justify-between p-5 rounded-t-lg">
@@ -15,14 +61,19 @@ const SingleNews = ({ data }) => {
                     </div>
                 </div>
                 <div className="flex items-center space-x-2 text-gray-600 dark:text-gray-300">
-                    <FaRegBookmark />
+                    {
+                        getDataFromLS().includes(data._id) ?
+                            <FaBookmark className=" cursor-pointer" onClick={() => { handleClick(data._id) }} />
+                            :
+                            <FaRegBookmark className=" cursor-pointer" onClick={() => { handleClick(data._id) }} />
+                    }
                     <FaShareAlt />
                 </div>
             </div>
             <div className="px-5">
                 <h1 className="py-4 text-[20px] font-semibold">{data.title}</h1>
                 <img className="w-full" src={data.image_url} alt="" />
-                <p className="text-base mt-8 text-gray-400 text-justify">{data.details.split(" ").slice(0,45).join(' ')}...</p>
+                <p className="text-base mt-8 text-gray-400 text-justify">{data.details.split(" ").slice(0, 45).join(' ')}...</p>
                 <Link to={`/news/${data._id}`}>
                     <span className="block font-semibold mt-3 cursor-pointer text-orange-500">Read More</span>
                 </Link>

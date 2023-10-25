@@ -9,6 +9,7 @@ import Login from './pages/LoginPage/Login'
 import Registration from './pages/RegistrationPage/Registration'
 import AuthContextProvider from './export/Auth/AuthContextProvider'
 import PrivateRoute from './pages/PrivateRoute/PrivateRoute'
+import BookMerked from './pages/BookMarked/BookMerked'
 
 const router = createBrowserRouter([
   {
@@ -28,6 +29,9 @@ const router = createBrowserRouter([
       }, {
         path: '/registration',
         element: <Registration />
+      },{
+        path:'/bookmark',
+        element:<BookMerked/>
       }
     ]
   }

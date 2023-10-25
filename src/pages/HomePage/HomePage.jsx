@@ -1,9 +1,6 @@
 import { useContext, useEffect, useState } from "react"
-import Header from "../../components/Header/Header"
 import LeftNavbar from "../../components/LeftNavbar/LeftNavbar"
 import RightNavbar from "../../components/Rightnavbar/RightNavbar"
-import BreakingNews from "../../components/SimpleNavbar/BreakingNews"
-import SimpleNavbar from "../../components/SimpleNavbar/SimpleNavbar"
 import SingleNews from "../../components/SingleNews/SingleNews"
 import { AuthContext } from "../../export/Auth/AuthContextProvider"
 
@@ -18,12 +15,9 @@ const HomePage = () => {
             .then(res => {
                 setNewsDatas(res)
                 setTempDatas(res)
-                console.log(cate);
                 if (cate > 0) {
                     const rem = nextDatas.filter(one => parseInt(one.category_id) === cate)
                     setTempDatas(rem)
-                    console.log(tempDatas);
-
                 }
             })
     }, [cate])
@@ -31,15 +25,15 @@ const HomePage = () => {
 
     return (
         <div>
-            <Header />
-            <BreakingNews />
-            <SimpleNavbar />
-            <div className="font-poppins grid grid-cols-4 gap-4 h-screen overflow-y-hidden">
-                <div className="overflow-y-scroll">
+            <div className="font-poppins grid md:grid-cols-3 lg:grid-cols-4 gap-4 h-screen overflow-y-hidden">
+                <div className="overflow-y-scroll hidden md:block">
                     <LeftNavbar />
                 </div>
-                <div className="col-span-2 overflow-y-scroll">
-                    <h1 className="text-[18px] 500 mb-3 font-bold">Dragon News Home</h1>
+                <div className=" col-span-2 overflow-y-scroll">
+                    <div className="flex justify-between">
+                        <h1 className="text-[18px] 500 mb-3 font-bold">Dragon News Home</h1>
+                        <h1 className="text-[18px] 500 mb-3 font-bold"><span className=" text-purple-600">{tempDatas.length} </span> News Found</h1>
+                    </div>
                     {
                         tempDatas.length == 0 && <div className="bg-red-300 p-3 rounded-lg text-black text-center">
                             <p>No Data found for this category !</p>
@@ -53,7 +47,7 @@ const HomePage = () => {
                         })}
                     </div>
                 </div>
-                <div className="overflow-y-scroll">
+                <div className="overflow-y-scroll hidden lg:block">
                     <RightNavbar createStaus={true} />
                 </div>
             </div>

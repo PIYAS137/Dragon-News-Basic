@@ -31,6 +31,7 @@ const RightNavbar = ({ createStaus }) => {
         }
     }
 
+
     return (
         <div>
             <div className="space-y-2 ">
@@ -51,8 +52,8 @@ const RightNavbar = ({ createStaus }) => {
 
             <div className=" mt-8">
                 <h1 className="font-bold text-lg mb-2">Find Us On</h1>
-                <div className="border dark:border-gray-700 dark:text-gray-300 border-gray-200 p-3 rounded-t-lg space-x-1 items-center w-full btn-outline flex justify-start cursor-pointer">
-                    <FaFacebookF />
+                <div  className="border dark:border-gray-700 dark:text-gray-300 border-gray-200 p-3 rounded-t-lg space-x-1 items-center w-full btn-outline flex justify-start cursor-pointer">
+                    <FaFacebookF/>
                     <a>Facebook</a>
                 </div>
                 <div className="border-x dark:border-gray-700 dark:text-gray-300 p-3 border-gray-200 space-x-2 items-center w-full btn-outline flex justify-start cursor-pointer">
