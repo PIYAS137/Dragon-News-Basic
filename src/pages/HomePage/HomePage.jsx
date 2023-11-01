@@ -20,7 +20,7 @@ const HomePage = () => {
                     setTempDatas(rem)
                 }
             })
-    }, [cate])
+    }, [cate,tempDatas])
 
 
     return (

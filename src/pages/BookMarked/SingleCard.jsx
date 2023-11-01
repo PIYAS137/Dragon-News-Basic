@@ -8,9 +8,9 @@ const SingleCard = ({handleDeleteBookmard,data}) => {
         handleDeleteBookmard(_id)
     }
   return (
-    <div className=" border justify-center items-center md:justify-between flex-col md:flex-row flex m-5 rounded-xl">
+    <div className=" border justify-center overflow-hidden items-center md:justify-between flex-col md:flex-row flex m-5 rounded-xl">
 
-        <div>
+        <div >
             <img className="pt-3 md:pt-0 max-w-xs" src={data.image_url} alt="" />
         </div>
            <div className=" flex items-center font-semibold max-w-sm">

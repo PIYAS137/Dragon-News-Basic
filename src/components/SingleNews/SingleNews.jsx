@@ -3,24 +3,36 @@ import { Link, Navigate, useNavigate } from "react-router-dom";
 import PropTypes from 'prop-types';
 import { useContext, useState } from "react";
 import Swal from 'sweetalert2'
-import { addToLocalStorage , removeIdFromLS, getDataFromLS } from '../../LocalStorage/LocalStorage.js'
+import { addToLocalStorage, removeIdFromLS, getDataFromLS } from '../../LocalStorage/LocalStorage.js'
 import { AuthContext } from "../../export/Auth/AuthContextProvider.jsx";
 
 
 const SingleNews = ({ data }) => {
     const [status, setStatus] = useState(false)
-    const {user} = useContext(AuthContext)
+    const { user } = useContext(AuthContext)
     const navigate = useNavigate()
+    const [shareStatus, setShareStatus] = useState(false);
+
+    const handleClickShare = (_id) => {
+        setShareStatus(true);
+        // share link opt!!!
+        navigator.clipboard.writeText(`http://localhost:5173/news/${_id}`)
+        // share link opt!!!
+
+        setTimeout(() => {
+            setShareStatus(false)
+        }, 1000)
+    }
 
 
     const handleClick = (_id) => {
-        
-        if(!user){
+
+        if (!user) {
             navigate('/login')
             Swal.fire(
                 'You should be Logged In for it!',
             )
-            return 
+            return
         }
 
         if (!getDataFromLS().includes(_id)) {
@@ -42,7 +54,7 @@ const SingleNews = ({ data }) => {
                     )
                 }
             })
-        }else{
+        } else {
             setStatus(!status)
             removeIdFromLS(_id)
         }
@@ -67,7 +79,12 @@ const SingleNews = ({ data }) => {
                             :
                             <FaRegBookmark className=" cursor-pointer" onClick={() => { handleClick(data._id) }} />
                     }
-                    <FaShareAlt />
+                    {
+                        shareStatus ?
+                            <FaShareAlt onClick={() => handleClickShare(data._id)} className=" cursor-pointer text-blue-400" />
+                            :
+                            <FaShareAlt className=" cursor-pointer" onClick={() => handleClickShare(data._id)} />
+                    }
                 </div>
             </div>
             <div className="px-5">
