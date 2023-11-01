@@ -1,5 +1,5 @@
 import { FaRegBookmark, FaBookmark, FaShareAlt, FaEye } from "react-icons/fa";
-import { Link, Navigate, useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import PropTypes from 'prop-types';
 import { useContext, useState } from "react";
 import Swal from 'sweetalert2'
@@ -16,7 +16,7 @@ const SingleNews = ({ data }) => {
     const handleClickShare = (_id) => {
         setShareStatus(true);
         // share link opt!!!
-        navigator.clipboard.writeText(`http://localhost:5173/news/${_id}`)
+        navigator.clipboard.writeText(`https://dragonnews-51fa9.web.app/news/${_id}`)
         // share link opt!!!
 
         setTimeout(() => {

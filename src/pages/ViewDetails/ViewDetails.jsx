@@ -6,15 +6,16 @@ import { FaCalendar, FaChevronLeft } from "react-icons/fa"
 import Pic1 from '../../assets/1.png'
 import Pic2 from '../../assets/2.png'
 import Pic3 from '../../assets/3.png'
-import SimpleNavbar from "../../components/SimpleNavbar/SimpleNavbar"
+import { newsDatasx } from "../../../news"
 
 
 const ViewDetails = () => {
 
     const sid = useParams()
 
-    const [datas, setDatas] = useState([])
+    const [datas, setDatas] = useState(newsDatasx)
     const [data, setData] = useState()
+    console.log(datas);
 
     useEffect(() => {
         fetch('/src/export/data/news.json')
