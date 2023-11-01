@@ -1,4 +1,4 @@
-[
+export const categorysData = [
     {
         "id": "0",
         "name": "All News"

@@ -5,6 +5,7 @@ import Pic2 from '../../assets/2.png'
 import Pic3 from '../../assets/3.png'
 import { FaCalendar } from "react-icons/fa";
 import { AuthContext } from "../../export/Auth/AuthContextProvider"
+import { categorysData } from "../../../categories"
 
 
 const LeftNavbar = () => {
@@ -13,9 +14,7 @@ const LeftNavbar = () => {
     const [activeBar,setActiveBar]=useState(null)
 
     useEffect(() => {
-        fetch('/src/export/data/categories.json')
-            .then(res => res.json())
-            .then(res => setCategorys(res))
+       setCategorys(categorysData)
     }, [])
 
 

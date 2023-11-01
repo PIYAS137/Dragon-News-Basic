@@ -3,23 +3,18 @@ import LeftNavbar from "../../components/LeftNavbar/LeftNavbar"
 import RightNavbar from "../../components/Rightnavbar/RightNavbar"
 import SingleNews from "../../components/SingleNews/SingleNews"
 import { AuthContext } from "../../export/Auth/AuthContextProvider"
+import { newsDatasx } from "../../../news"
 
 const HomePage = () => {
     const { cate } = useContext(AuthContext)
-    const [nextDatas, setNewsDatas] = useState([])
-    const [tempDatas, setTempDatas] = useState(nextDatas)
+    const [nextDatas, setNewsDatas] = useState(newsDatasx)
+    const [tempDatas, setTempDatas] = useState(newsDatasx)
 
     useEffect(() => {
-        fetch('/src/export/data/news.json')
-            .then(res => res.json())
-            .then(res => {
-                setNewsDatas(res)
-                setTempDatas(res)
-                if (cate > 0) {
-                    const rem = nextDatas.filter(one => parseInt(one.category_id) === cate)
-                    setTempDatas(rem)
-                }
-            })
+        if (cate > 0) {
+            const rem = nextDatas.filter(one => parseInt(one.category_id) === cate)
+            setTempDatas(rem)
+        }
     }, [cate,tempDatas])
 
 

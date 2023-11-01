@@ -1,4 +1,4 @@
-[
+export const newsDatasx = [
     {
       "_id": "0282e0e58a5c404fbd15261f11c2ab6a",
       "others_info": {
